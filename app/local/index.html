@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"></meta>
+  <head>
+    <title>Flow Chamber Controller</title>
+    <script src="../common/src/muse/main.js" main="./src/app.js"></script>
+  	<link rel="stylesheet" href="css/style.css"></link>
+  </head>
+  <body>
+  <div class='floater'>
+    <span>Time: <span id='grTm'>12:00</span></span><br>
+    <span>Actual: <span id='actual'>NA</span></span><br>
+    <span>Set: <span id='intended'>NA</span></span>
+  </div>
+    <div class="content">
+      <div class="topBar">
+        <img class='logo' src='img/logo.png'></img>Flow Chamber Control
+        <span class='timeSelect'>Graph Time Range:
+          <select id="timeRange">
+            <option value='600000'>Ten Minutes</option>
+            <option value='3600000'>One Hour</option>
+            <option value='36000000'>Ten Hours</option>
+          </select>
+        </span>
+      </div>
+      <dual-graph id='tempTime'></dual-graph>
+      <div class='info'>
+        <div class='feedback'>
+          <span id='tempFB'>Current Temp (°C): <span id='current'>0</span></span>
+          <span id='tempFB'>Commanded Temp (°C): <span id='cmd'>NONE</span></span>
+          <span id='noteFB'>Notifications: <span id='notes'>Starting up</span></span>
+        </div>
+        <div class='controls'>
+          <div class='ctrol auto'>
+            <input id='auto' name='mode' type='radio'></input><label for='auto'>Automatic Control:</label>
+            <div>
+              <div><span>Temperature File: </span><input id='dataFile' type="file" accept=".csv"></input></div>
+              <div class='buttons'>
+                <input class='go' type="button" value='Start'></input> <input class='stop' type="button" value='Stop'></input>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class='ctrol manual'>
+            <input id='manual' name='mode' type='radio' checked></input><label for='manual'>Manual Control:</label>
+            <div><span>Enter Temperature (°C): </span><input id='manCmd' type="number" value="30" min="0" max="60"></input><br>
+            <div class='buttons'>
+              <input class='go' type="button" value='Set'></input> <input class='stop' type="button" value='Clear'></input>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- s<input type='range' id='color'></input> -->
+  </body>
+</html>
